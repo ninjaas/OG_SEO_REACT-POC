@@ -6,7 +6,7 @@ const fs = require('fs')
 
 app.get('/', function(request, response) {
   console.log('Home page visited!');
-  const filePath = path.resolve(__dirname, './build', 'index.html');
+  const filePath = path.resolve(__dirname, './react/build', 'index.html');
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
@@ -20,7 +20,7 @@ app.get('/', function(request, response) {
 
 app.get('/about', function(request, response) {
   console.log('About page visited!');
-  const filePath = path.resolve(__dirname, './build', 'index.html')
+  const filePath = path.resolve(__dirname, './react/build', 'index.html')
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
@@ -34,7 +34,7 @@ app.get('/about', function(request, response) {
 
 app.get('/contact', function(request, response) {
   console.log('Contact page visited!');
-  const filePath = path.resolve(__dirname, './build', 'index.html')
+  const filePath = path.resolve(__dirname, './react/build', 'index.html')
   fs.readFile(filePath, 'utf8', function (err,data) {
     if (err) {
       return console.log(err);
@@ -46,10 +46,10 @@ app.get('/contact', function(request, response) {
   });
 });
 
-app.use(express.static(path.resolve(__dirname, './build')));
+app.use(express.static(path.resolve(__dirname, './react/build')));
 
 app.get('*', function(request, response) {
-  const filePath = path.resolve(__dirname, './build', 'index.html');
+  const filePath = path.resolve(__dirname, './react/build', 'index.html');
   response.sendFile(filePath);
 });
 
